@@ -7,8 +7,7 @@ static const int N = 100;
 static vector<int> G[N]; // 邻接表
 static bool visit[N] = {false}; // 访问数组
 
-void DFS(int v)
-{
+void DFS(int v) {
     visit[v] = true;
     for (int i = 0; i < G[v].size(); i++) {
         if (!visit[G[v][i]])
@@ -16,8 +15,7 @@ void DFS(int v)
     }
 }
 
-void BFS(int v)
-{
+void BFS(int v) {
     queue<int> Q;
     visit[v] = true;
     Q.push(v);
@@ -33,8 +31,7 @@ void BFS(int v)
     }
 }
 
-int isConnected(int n)
-{
+int isConnected(int n) {
     int v = 0;
     while (v < 1 || v > 5) {
         printf("please input a valid start index: 1~5\n");
@@ -49,8 +46,7 @@ int isConnected(int n)
     return 1; // 连通
 }
 
-int main()
-{
+int main() {
     int n, m; // 顶点数,边数
     scanf("%d%d", &n, &m);
     for (int i = 0; i < m; i++) { // 构建无向图的邻接表

@@ -44,6 +44,21 @@ vector<int> insertSort(vector<int>& nums) {
 // 快速排序（24 ms）
 void qSort(vector<int>& nums, int l, int r) {
     if (l >= r) return;
+    int x = nums[l], i = l, j = r;
+    while (i < j) {
+        while (i < j && nums[j] > x) j--;
+        if (i < j) nums[i++] = nums[j];
+        while (i < j && nums[i] < x) i++;
+        if (i < j) nums[j--] = nums[i];
+    }
+    nums[i] = x;
+    qSort(nums, l, i-1);
+    qSort(nums, i+1, r);
+}
+
+// 快速排序（24 ms）
+void qqSort(vector<int>& nums, int l, int r) {
+    if (l >= r) return;
     int m = l;
     for (int i = l; i < r; ++i) {
         if (nums[i] < nums[r]) {
